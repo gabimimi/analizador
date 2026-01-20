@@ -545,67 +545,57 @@ ul, ol{
 }
 
 /* =========================
-   Responsive patch (mobile)
-   Pega esto al FINAL de styles.css
+   MOBILE-ONLY FIXES
+   (does NOT change desktop)
+   Paste at END of styles.css
    ========================= */
 
-/* 1) Contenedor: mejor que 60% */
-.container{
-  width: 100%;
-  max-width: 860px;   /* ancho “desktop” razonable */
-  margin: 0 auto;     /* centra */
-  padding: 56px 20px 72px;
-}
+@media (max-width: 640px) {
 
-/* 2) Tipografía fluida (se adapta sola) */
-h1{
-  transform: none;          /* IMPORTANT: evita overflow en móvil */
-  letter-spacing: 0.02em;
-  text-align: center;
-  justify-content: center;
-  font-size: clamp(1.8rem, 5.5vw, 3rem);
-  font-weight: 900;
-  letter-spacing: 0.06em;
-  text-shadow: 0 0 0.6px currentColor;
-}
-
-.subtitle{
-  font-size: clamp(1rem, 3.6vw, 1.35rem);
-  text-align: center;
-}
-
-/* 3) Evita zoom raro en iOS y mejora el input en móvil */
-.chatBar textarea#headline{
-  font-size: 16px; /* iOS: <16px hace zoom al enfocar */
-  min-height: 40px;
-}
-
-/* 4) Evita desbordes por min-width en componentes */
-.barWrap{
-  min-width: 0; /* antes 280px; en móvil puede empujar el layout */
-}
-
-.metrics{
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-}
-
-/* 5) Mobile tweaks */
-@media (max-width: 520px){
-
+  /* Keep layout from becoming too narrow on phones */
   .container{
+    max-width: 100%;
+    width: 100%;
     padding: 24px 14px 40px;
   }
 
+  /* Stop the H1 from causing overflow on phones,
+     while keeping a similar "big / bold" feel */
+  h1{
+    transform: none !important;          /* disable scaleX only on phone */
+    font-size: clamp(1.6rem, 7vw, 2.4rem);
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .subtitle{
+    font-size: clamp(1rem, 4vw, 1.25rem);
+    text-align: center;
+  }
+
+  /* Prevent weird horizontal push from min-width constraints */
+  .barWrap{
+    min-width: 0;
+  }
+
+  /* Make the input usable and avoid iOS zoom on focus */
+  .chatBar textarea#headline{
+    font-size: 16px;
+    min-height: 40px;
+  }
+
+  /* Make the main card + chat bar fit nicely */
   .card{
     padding: 16px;
     border-radius: 16px;
   }
 
-  /* Mantén la barra de input “bonita” pero usable en pantallas chicas */
   .chatBar{
-    border-radius: 18px; /* menos “pill” gigante */
     padding: 10px;
     gap: 8px;
+    border-radius: 18px;
   }
 
   .chatBar button{
@@ -613,23 +603,18 @@ h1{
     height: 42px;
   }
 
-  /* Result header: permite wrap y que no se rompa */
+  /* Let the result header wrap instead of overflowing */
   .resultTop{
     flex-wrap: wrap;
     gap: 10px;
   }
 
-  /* Barra más compacta */
-  .barWrap{
-    height: 26px;
-  }
-
-  /* Metrics: una columna (cero drama) */
+  /* Metrics stack in one column on phones */
   .metrics{
     grid-template-columns: 1fr;
   }
 
-  /* Rings un toque más chicos */
+  /* Slightly smaller rings so they don't crowd */
   .ring{
     width: 48px;
     height: 48px;
@@ -638,7 +623,9 @@ h1{
     width: 36px;
     height: 36px;
   }
+
+  /* Extra safety: prevent any accidental horizontal scrolling */
+  body{
+    overflow-x: hidden;
+  }
 }
-
-
-

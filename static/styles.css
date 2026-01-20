@@ -559,11 +559,14 @@ ul, ol{
 
 /* 2) Tipografía fluida (se adapta sola) */
 h1{
-  font-size: clamp(1.6rem, 5vw, 2.6rem);
   transform: none;          /* IMPORTANT: evita overflow en móvil */
   letter-spacing: 0.02em;
   text-align: center;
   justify-content: center;
+  font-size: clamp(1.8rem, 5.5vw, 3rem);
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-shadow: 0 0 0.6px currentColor;
 }
 
 .subtitle{
@@ -636,5 +639,6 @@ h1{
     height: 36px;
   }
 }
+
 
 

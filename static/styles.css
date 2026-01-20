@@ -543,3 +543,98 @@ ul, ol{
   .chatBar{ padding: 10px; }
   .chatBar button{ width: 42px; height: 42px; }
 }
+
+/* =========================
+   Responsive patch (mobile)
+   Pega esto al FINAL de styles.css
+   ========================= */
+
+/* 1) Contenedor: mejor que 60% */
+.container{
+  width: 100%;
+  max-width: 860px;   /* ancho “desktop” razonable */
+  margin: 0 auto;     /* centra */
+  padding: 56px 20px 72px;
+}
+
+/* 2) Tipografía fluida (se adapta sola) */
+h1{
+  font-size: clamp(1.6rem, 5vw, 2.6rem);
+  transform: none;          /* IMPORTANT: evita overflow en móvil */
+  letter-spacing: 0.02em;
+  text-align: center;
+  justify-content: center;
+}
+
+.subtitle{
+  font-size: clamp(1rem, 3.6vw, 1.35rem);
+  text-align: center;
+}
+
+/* 3) Evita zoom raro en iOS y mejora el input en móvil */
+.chatBar textarea#headline{
+  font-size: 16px; /* iOS: <16px hace zoom al enfocar */
+  min-height: 40px;
+}
+
+/* 4) Evita desbordes por min-width en componentes */
+.barWrap{
+  min-width: 0; /* antes 280px; en móvil puede empujar el layout */
+}
+
+.metrics{
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+/* 5) Mobile tweaks */
+@media (max-width: 520px){
+
+  .container{
+    padding: 24px 14px 40px;
+  }
+
+  .card{
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  /* Mantén la barra de input “bonita” pero usable en pantallas chicas */
+  .chatBar{
+    border-radius: 18px; /* menos “pill” gigante */
+    padding: 10px;
+    gap: 8px;
+  }
+
+  .chatBar button{
+    width: 42px;
+    height: 42px;
+  }
+
+  /* Result header: permite wrap y que no se rompa */
+  .resultTop{
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  /* Barra más compacta */
+  .barWrap{
+    height: 26px;
+  }
+
+  /* Metrics: una columna (cero drama) */
+  .metrics{
+    grid-template-columns: 1fr;
+  }
+
+  /* Rings un toque más chicos */
+  .ring{
+    width: 48px;
+    height: 48px;
+  }
+  .ring__inner{
+    width: 36px;
+    height: 36px;
+  }
+}
+
+

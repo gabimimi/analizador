@@ -550,6 +550,79 @@ ul, ol{
    Paste at END of styles.css
    ========================= */
 
+@media (max-width: 900px) {
+
+  /* Keep layout from becoming too narrow on phones */
+  .container{
+    max-width: 100%;
+    width: 100%;
+    padding: 24px 14px 40px;
+  }
+
+  /* Stop the H1 from causing overflow on phones,
+     while keeping a similar "big / bold" feel */
+  h1{ font-size: 1.85rem; }
+  .subtitle{
+    font-size: clamp(1rem, 4vw, 1.25rem);
+    text-align: center;
+  }
+
+  /* Prevent weird horizontal push from min-width constraints */
+  .barWrap{
+    min-width: 0;
+  }
+
+  /* Make the input usable and avoid iOS zoom on focus */
+  .chatBar textarea#headline{
+    font-size: 16px;
+    min-height: 40px;
+  }
+
+  /* Make the main card + chat bar fit nicely */
+  .card{
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  .chatBar{
+    padding: 10px;
+    gap: 8px;
+    border-radius: 18px;
+  }
+
+  .chatBar button{
+    width: 42px;
+    height: 42px;
+  }
+
+  /* Let the result header wrap instead of overflowing */
+  .resultTop{
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  /* Metrics stack in one column on phones */
+  .metrics{
+    grid-template-columns: 1fr;
+  }
+
+  /* Slightly smaller rings so they don't crowd */
+  .ring{
+    width: 48px;
+    height: 48px;
+  }
+  .ring__inner{
+    width: 36px;
+    height: 36px;
+  }
+
+  /* Extra safety: prevent any accidental horizontal scrolling */
+  body{
+    overflow-x: hidden;
+  }
+}
+
+
 @media (max-width: 640px) {
 
   /* Keep layout from becoming too narrow on phones */

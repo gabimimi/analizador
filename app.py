@@ -69,7 +69,7 @@ QUOTE_ATTRIBUTION_WORDS = {
 }
 
 # Intensificadores / prefijos
-INTENSIFIER_PREFIXES = ["ultra", "mega", "hiper", "super", "súper", "archi", "re"]
+INTENSIFIER_PREFIXES = ["ultra", "mega", "hiper", "super", "súper", "archi"]
 
 
 # =========================
@@ -265,7 +265,7 @@ def analyze(text: str) -> dict:
 
     score_length = round(abs(len(words) - 8.5))
     if score_length > 4: 
-        score += 10 * score_length
+        score += 5 * score_length
         reasons.append(f"Largor sospechozo.")
 
 
@@ -327,4 +327,5 @@ def analyze_route():
 
 
 if __name__ == "__main__":
+
     app.run(host="0.0.0.0", port=5000, debug=True)

@@ -146,7 +146,7 @@ def count_intensifiers(lower_raw: str, words: list[str]) -> int:
     """
     # your code here
     total = 0
-    for bmega in words:
+    for bmega in INTENSIFIER_PREFIXES:
         total += len(re.findall(rf"\b{bmega}[-]?[a-záéíóúüñ]", lower_raw))
     total += sum(1 for w in words if w in INTENSIFIER_PREFIXES)
     return total
@@ -329,4 +329,5 @@ def analyze_route():
 if __name__ == "__main__":
 
     app.run(host="0.0.0.0", port=5000, debug=True)
+
 

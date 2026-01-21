@@ -50,7 +50,8 @@ CLICKBAIT_PATTERNS = [
     r"cuando veas",
     r"el final", 
     r"graves consecuencias", 
-    r"no te lo vas a creer"
+    r"no te lo vas a creer", 
+    r"te sorprenderá"
 ]
 
 HIDING_WORDS = {
@@ -229,7 +230,7 @@ def analyze(text: str) -> dict:
     reasons: list[str] = []
 
     # Mayúsculas
-    score = add_points(score, reasons, caps > 0.25, 100*caps,
+    score = add_points(score, reasons, caps > 0.25, round(200*caps),
                        "Muchas mayúsculas (tono agresivo/sensacionalista).")
     score = add_points(score, reasons, 0.15 < caps <= 0.25, 15,
                        "Bastantes mayúsculas (posible tono sensacionalista).")
@@ -330,6 +331,7 @@ def analyze_route():
 if __name__ == "__main__":
 
     app.run(host="0.0.0.0", port=5000, debug=True)
+
 
 
 

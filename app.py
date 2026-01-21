@@ -196,9 +196,9 @@ def label_from_score(score: int) -> str:
     # your code hereç
     if score <= 33 and score >= 0:
         label = "BAJO"
-    elif score >= 34 and score <= 66:
+    elif score >= 34 and score <= 74:
         label = "MEDIO"
-    elif score >= 67 and score <= 100:
+    elif score >= 75:
         label = "ALTO"
     return label
 
@@ -329,6 +329,7 @@ def analyze_route():
 if __name__ == "__main__":
 
     app.run(host="0.0.0.0", port=5000, debug=True)
+
 
 
 

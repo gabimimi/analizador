@@ -263,7 +263,7 @@ def analyze(text: str) -> dict:
     
     # largor 
 
-    score_length = round(abs(len(words) - 8.5))
+    score_length = round(abs(len(words) - 15))
     if score_length > 4: 
         score += 5 * score_length
         reasons.append(f"Largor sospechozo.")
@@ -329,6 +329,7 @@ def analyze_route():
 if __name__ == "__main__":
 
     app.run(host="0.0.0.0", port=5000, debug=True)
+
 
 
 

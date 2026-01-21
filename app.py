@@ -58,7 +58,7 @@ HIDING_WORDS = {
     "aquello", "aquella", "aquel", "aquellos", "aquellas",
     "algo", "alguien", "cosa", "cosas",
     "tal", "tales", "cierto", "cierta", "ciertos", "ciertas",
-    "supuesto", "supuesta", "supuestos", "supuestas"
+    "supuesto", "supuesta", "supuestos", "supuestas", "alguna", "alguno", "algunas", "algunos"
 }
 
 # Marcadores típicos de cita real (heurística)
@@ -329,3 +329,4 @@ def analyze_route():
 if __name__ == "__main__":
 
     app.run(host="0.0.0.0", port=5000, debug=True)
+

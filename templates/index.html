@@ -130,7 +130,7 @@
       const points = {};
 
       // caps
-      if (caps > 0.25) points.caps_ratio = 100*caps;
+      if (caps > 0.25) points.caps_ratio = (200*caps).toFixed();
       else if (caps > 0.15) points.caps_ratio = 15;
       else points.caps_ratio = 0;
 
@@ -293,6 +293,7 @@
   </script>
 </body>
 </html>
+
 
 
 

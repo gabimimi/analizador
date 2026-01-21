@@ -49,7 +49,8 @@ CLICKBAIT_PATTERNS = [
     r"sin esfuerzo", 
     r"cuando veas",
     r"el final", 
-    r"graves consecuencias" 
+    r"graves consecuencias", 
+    r"no te lo vas a creer"
 ]
 
 HIDING_WORDS = {
@@ -329,6 +330,7 @@ def analyze_route():
 if __name__ == "__main__":
 
     app.run(host="0.0.0.0", port=5000, debug=True)
+
 
 
 

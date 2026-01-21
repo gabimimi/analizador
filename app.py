@@ -250,7 +250,7 @@ def analyze(text: str) -> dict:
                        "Frases típicas de clickbait detectadas.")
 
     # Vagueza / ocultación
-    score = add_points(score, reasons, hiding_count > 0, max(15, 4 * hiding_count),
+    score = add_points(score, reasons, hiding_count > 0, max(10, 4 * hiding_count),
                        f"Lenguaje vago/comodín (esto/eso/aquello/algo…): {hiding_count}.")
 
     # Intensificadores
@@ -329,5 +329,6 @@ def analyze_route():
 if __name__ == "__main__":
 
     app.run(host="0.0.0.0", port=5000, debug=True)
+
 
 

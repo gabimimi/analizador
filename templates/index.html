@@ -155,7 +155,7 @@
       // suspicious quotes
       points.suspicious_quotes = quotes > 0 ? Math.max(15, 8 * quotes) : 0;
 
-      const score_length = Math.round(Math.abs(lenWords - 8.5));
+      const score_length = Math.round(Math.abs(lenWords - 15));
       points.length_words = (score_length > 4) ? (5 * score_length) : 0;
           return points;
         }
@@ -293,5 +293,6 @@
   </script>
 </body>
 </html>
+
 
 
